@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#111a1d" />
+    <meta name="description" content="Strikepoint — brauzerda ishlaydigan 3D FPS prototipi." />
+    <title>STRIKEPOINT // FPS</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game"></canvas>
+      <div id="vignette"></div>
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">S</span><div><strong>STRIKEPOINT</strong><small>TACTICAL SIMULATION</small></div></div>
+        <div class="top-status"><span class="live-dot"></span> TRAINING ZONE <span class="status-divider">/</span> SECTOR 07</div>
+        <button id="pauseBtn" class="icon-btn" aria-label="Pauza">Ⅱ</button>
+      </header>
+
+      <section class="hud" id="hud">
+        <div class="mission-card glass">
+          <div class="eyebrow">ACTIVE OPERATION <span class="mission-code">SP-07</span></div>
+          <h2>Dustline</h2>
+          <p>Hududdagi nishonlarni zararsizlantiring.</p>
+          <div class="mission-progress"><span id="progressBar"></span></div>
+          <div class="mission-foot"><span>TARGETS</span><strong id="targetCount">05 / 05</strong></div>
+        </div>
+        <div class="objective glass"><span class="objective-icon">⌖</span><div><small>PRIMARY OBJECTIVE</small><strong>Hududni tozalang</strong></div></div>
+        <div class="reticle" id="reticle"><span></span><i></i></div>
+        <div class="hitmarker" id="hitmarker">✕</div>
+        <div class="bottom-left glass vitals">
+          <div class="vital-icon">♥</div><div class="vital-info"><small>VITALS</small><strong id="healthText">100</strong><div class="vital-track"><span id="healthBar"></span></div></div>
+          <div class="vital-sep"></div>
+          <div class="vital-info armor"><small>ARMOR</small><strong>075</strong><div class="vital-track"><span></span></div></div>
+        </div>
+        <div class="bottom-right glass weapon-panel">
+          <div class="weapon-copy"><small>PRIMARY WEAPON</small><strong>AR-4 <span>ASSAULT</span></strong><div class="ammo-label">5.56 × 45 mm</div></div>
+          <div class="ammo"><strong id="ammoText">30</strong><span>/ 120</span></div>
+          <div class="weapon-silhouette">⌁</div>
+          <button id="reloadBtn" class="reload-btn">↻ RELOAD <kbd>R</kbd></button>
+        </div>
+        <div class="desktop-help" id="desktopHelp">WASD <span>MOVE</span>　 MOUSE <span>AIM</span>　 LMB <span>FIRE</span>　 R <span>RELOAD</span>　 ESC <span>PAUSE</span></div>
+      </section>
+
+      <div class="mobile-controls" id="mobileControls">
+        <div class="joystick-zone" id="joystickZone"><div class="joy-ring"><div id="joyKnob"></div></div><span>MOVE</span></div>
+        <div class="look-hint">SURRISH UCHUN<br/>EKRANNI SILING</div>
+        <button id="mobileReload" class="mobile-action reload-action">↻</button>
+        <button id="fireBtn" class="mobile-action fire-action"><span>●</span><small>FIRE</small></button>
+      </div>
+
+      <div id="startScreen" class="screen-overlay">
+        <div class="start-card">
+          <div class="pretitle"><span class="live-dot"></span> FIELD TRAINING // BUILD 0.1</div>
+          <h1>OWN THE<br/><em>GROUND.</em></h1>
+          <p class="start-desc">Taktikani sinang. Nishonga oling. Hududni tozalang.</p>
+          <div class="start-meta"><div><small>MISSION</small><strong>DUSTLINE</strong></div><div><small>THREAT LEVEL</small><strong class="threat">MODERATE</strong></div><div><small>ENVIRONMENT</small><strong>DESERT OUTPOST</strong></div></div>
+          <button id="startBtn" class="primary-btn"><span>▶</span> MISSIYANI BOSHLASH <b>↗</b></button>
+          <div class="start-note">PROTOTYPE • 3D WEB FPS • DESKTOP + MOBILE</div>
+        </div>
+        <div class="screen-coordinate">34° 12' N — SECTOR 07</div>
+      </div>
+
+      <div id="pauseScreen" class="screen-overlay hidden">
+        <div class="modal-card"><div class="eyebrow">MISSION CONTROL</div><h2>PAUZA</h2><p>Missiya vaqtincha to‘xtatildi.</p><button id="resumeBtn" class="primary-btn">DAVOM ETISH <b>↗</b></button><button id="restartBtn" class="secondary-btn">QAYTADAN BOSHLASH</button></div>
+      </div>
+      <div id="endScreen" class="screen-overlay hidden">
+        <div class="modal-card"><div class="eyebrow">MISSION REPORT</div><h2 id="endTitle">HUDUD TOZALANDI</h2><p id="endDesc">Barcha nishonlar zararsizlantirildi.</p><div class="report-stats"><div><small>ELIMINATIONS</small><strong id="finalKills">05</strong></div><div><small>ACCURACY</small><strong id="accuracy">100%</strong></div></div><button id="againBtn" class="primary-btn">QAYTA O‘YNASH <b>↗</b></button>
+        </div>
+      </div>
+      <div id="toast" class="toast"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
