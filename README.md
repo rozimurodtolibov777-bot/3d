@@ -1,56 +1,40 @@
 # STRIKEPOINT — 3D Web FPS
 
-Brauzerda ishlaydigan, Three.js asosidagi birinchi shaxs ko‘rinishidagi FPS prototipi. Desktop va Android uchun boshqaruv, HUD, missiya ekrani, dushmanlar, o‘q-dori, qayta o‘qlash, sog‘liq va g‘alaba/yutqazish holatlari mavjud.
+Three.js asosidagi brauzer FPS prototipi. Kompyuter va Android telefon brauzerlarida ishlash uchun tayyorlangan.
 
-## Talablar
-- Node.js 20.19+ yoki 22.12+
-- Internet (birinchi marta `npm install` va Three.js paketini olish uchun)
-- WebGL qo‘llaydigan zamonaviy brauzer
+## GitHub Pages orqali ishga tushirish
 
-## Ishga tushirish
+Ushbu loyiha `https://rozimurodtolibov777-bot.github.io/3/` manziliga moslab sozlangan (`vite.config.js` ichida `base: '/3/'`).
+
 1. ZIP arxivini oching.
-2. Loyiha papkasida terminal oching.
-3. Quyidagilarni bajaring:
+2. Ichidagi `strikepoint_fps` papkasining **ichidagi barcha fayl va papkalarni** GitHub repozitoriyingiz `3` ning ildiziga yuklang. `package.json`, `index.html`, `vite.config.js`, `src/` va `.github/` repozitoriy ildizida turishi kerak.
+3. Commit qiling. GitHub’da **Settings → Pages → Build and deployment → Source** bo‘limida **GitHub Actions** ni tanlang.
+4. **Actions** bo‘limiga o‘ting va `Deploy STRIKEPOINT FPS to GitHub Pages` jarayoni yashil belgi bilan tugashini kuting.
+5. Saytni oching: `https://rozimurodtolibov777-bot.github.io/3/`.
+
+> Muhim: fayllarni repozitoriy ichida yana `strikepoint_fps/` degan ichki papkaga joylamang. Ular repozitoriy ildizida bo‘lishi kerak. Agar repozitoriy nomi `3` bo‘lmasa, `vite.config.js` ichidagi `base` qiymatini `'/REPO-NOMI/'` qilib almashtiring.
+
+## Kompyuterda lokal ishga tushirish
+
+Node.js 20.19+ yoki 22.12+ o‘rnating, loyiha papkasida terminal ochib:
 
 ```bash
 npm install
 npm run dev
 ```
 
-4. Terminal ko‘rsatgan lokal manzilni kompyuter brauzerida oching (odatda `http://localhost:5173`).
-
-### Android telefonda sinash
-Telefon va kompyuter bir xil Wi-Fi tarmog‘ida bo‘lsin. Kompyuterda `npm run dev -- --host 0.0.0.0` buyrug‘ini ishga tushiring. Terminalda ko‘rsatilgan lokal IP manzilni telefon brauzerida `http://KOMPYUTER_IP:5173` shaklida oching. Firewall Vite portiga ruxsat berishi kerak. Hostingga joylanganda oddiy HTTPS manzil orqali ochiladi.
+Terminal bergan `http://localhost:5173` manzilini brauzerda oching.
 
 ## Boshqaruv
 
-### Kompyuter
-- **W / A / S / D** — yurish
-- **Sichqoncha** — qarash va nishonga olish
-- **Sichqonchaning chap tugmasi** — o‘q uzish
-- **R** — qayta o‘qlash
-- **Shift** — tezroq yurish
-- **Esc / II** — pauza
+- WASD — yurish
+- Sichqoncha — qarash/nishonga olish
+- Sichqonchaning chap tugmasi — o‘q uzish
+- R — qayta o‘qlash
+- Shift — tez yurish
+- Esc yoki pauza tugmasi — pauza
+- Android’da chap joystick — yurish; ekranning o‘ng tomonini surish — qarash; FIRE — o‘q uzish; ↻ — qayta o‘qlash
 
-### Android
-- Chap pastdagi virtual joystick — yurish
-- Ekranning o‘ng qismida barmoqni surish — qarash/nishonga olish
-- **FIRE** — o‘q uzish
-- **↻** — qayta o‘qlash
-- Yuqoridagi **Ⅱ** — pauza
+## Prototip haqida
 
-## O‘yin haqida
-- 5 ta nishonli trening missiyasi
-- Procedural 3D sahna: cho‘l bazasi, binolar, qum qoplari, bochkalar, qutilar, tog‘ tizmasi, soyalar va tuman
-- HUD: nishonlar, sog‘liq, o‘q-dori, missiya holati
-- Natija oynasi: zararsizlantirilgan nishonlar va aniqlik
-
-## Muhim eslatma
-Bu — o‘ynaladigan prototip. Hozircha tashqi fotorealistik asset paketlari, haqiqiy multiplayer, audio, murakkab dushman AI, server va doimiy saqlash kiritilmagan. Ko‘rinish Three.js geometriyasi va procedural teksturalar bilan yaratilgan; internetga joylash uchun Vite build chiqishini ishlatish mumkin.
-
-## Production build
-```bash
-npm run build
-npm run preview
-```
-Yaratilgan tayyor sayt fayllari `dist/` papkasiga tushadi. `dist/` papkasini statik hostingga (masalan, Netlify, Vercel yoki GitHub Pages konfiguratsiyasi moslangan holda) joylash mumkin.
+Trening maydoni, HUD, dushman nishonlari, o‘q-dori, sog‘liq va g‘alaba/yutqazish holatlari mavjud. Bu procedural grafikaga ega o‘ynaladigan prototip; fotorealistik tashqi assetlar va multiplayer kiritilmagan.
